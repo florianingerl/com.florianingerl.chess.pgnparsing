@@ -1,0 +1,10 @@
+(?x) #comment mode
+(?(DEFINE)
+(?<whitevariation>(?'number')\.(?'move')(?:(?:\((?'whitevariation')\))+(?:\k<number>\.{3}(?'blackvariation'))?|(?'blackvariation')|(?=$|\))))
+(?<number>\d+)
+(?<blackvariation>(?'move')(?:\((?'number')\.{3}(?'blackvariation')\))*(?'whitevariation')?)
+(?<move>(?'piece')?(?'square')[-x](?'square'))
+(?<piece>[NBRQK])
+(?<square>[a-h][1-8])
+)# end of DEFINE
+(?'whitevariation')
